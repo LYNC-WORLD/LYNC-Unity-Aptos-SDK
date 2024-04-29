@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: -278681970, guid: 0a7e9e8f66f818245bd5d276c0841b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LyncAPIKey: 
+  LyncAPIKey: B30D905974544D082BFEA8A727534195
   Network: 2
   SponsorTransaction: 1
 --- !u!114 &5805647402976630236
@@ -60,4 +60,4 @@ MonoBehaviour:
   m_Script: {fileID: 1591778871, guid: 0a7e9e8f66f818245bd5d276c0841b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <DeepLinkUrl>k__BackingField: lyncaptos
+  <DeepLinkUrl>k__BackingField: lync

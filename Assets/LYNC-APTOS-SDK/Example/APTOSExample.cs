@@ -18,6 +18,7 @@ public class APTOSExample : MonoBehaviour
     [Space]
     [Header("Pontem")]
     public Transform pontemContainer;
+    public TMP_Text pontemPublicAddress;
 
     [Space]
     [Header("Transactions")]
@@ -91,10 +92,9 @@ public class APTOSExample : MonoBehaviour
         {
             // mint.interactable = false;
 
-            TransactionResult txData = await LyncManager.Instance.TransactionsManager.SendTransaction(new Transaction(
-                "0x55db3f109405348dd4ce271dc92a39a6e1cbc3d78cf71f6bf128b1c8a9dfac33","tst_unity","set_data_bytes",
-                arguments
-            ));
+            TransactionResult txData = await LyncManager.Instance.TransactionsManager.SendTransaction(
+                mintTxn
+            );
             if (txData.success)
                 SuccessfulTransaction(txData.hash, "MINT");
             else
