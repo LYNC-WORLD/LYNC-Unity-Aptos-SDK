@@ -2352,6 +2352,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 375463546, guid: 2a88366018afe964b965e199ff79c9c4, type: 3}
+      propertyPath: LyncAPIKey
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5805647402976630236, guid: 2a88366018afe964b965e199ff79c9c4, type: 3}
       propertyPath: deepLinkUrl
       value: testaptos
