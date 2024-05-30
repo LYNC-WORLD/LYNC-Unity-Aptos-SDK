@@ -11,14 +11,15 @@ public class APTOSExample : MonoBehaviour
     public Button login, logout, mint;
 
     [Space]
-    [Header("Aptos")]
+    [Header("Firebase")]
     public Transform aptosContainer;
     public TMP_Text WalletAddressText, loginDateTxt, balance;
 
+
     [Space]
-    [Header("Pontem")]
-    public Transform pontemContainer;
-    public TMP_Text pontemPublicAddress;
+    [Header("Keyless")]
+    public Transform keylessContainer;
+    public TMP_Text accountAddress, keylessPublicKey, keylessLoginDate;
 
     [Space]
     [Header("Transactions")]
@@ -26,7 +27,6 @@ public class APTOSExample : MonoBehaviour
     public GameObject transactionResultHolder;
     public Transaction mintTxn;
 
-    private AuthBase authBase;
     public static APTOSExample Instance;
 
     private void OnEnable()
@@ -46,12 +46,12 @@ public class APTOSExample : MonoBehaviour
 
     private async void LyncReady(LyncManager Lync)
     {
+        AuthBase authBase;
         try
         {
             authBase = await AuthBase.LoadSavedAuth();
             if (authBase.WalletConnected)
             {
-                Debug.Log("Saved wallet successfully loaded");
                 OnWalletConnected(authBase);
             }
             else
@@ -69,8 +69,6 @@ public class APTOSExample : MonoBehaviour
         {
             Lync.WalletAuth.ConnectWallet((wallet) =>
             {
-                Debug.Log(wallet.WalletConnected);
-                Debug.Log(wallet.PublicAddress);
                 OnWalletConnected(wallet);
             });
         });
@@ -81,6 +79,10 @@ public class APTOSExample : MonoBehaviour
             login.interactable = true;
             logout.interactable = false;
             mint.interactable = false;
+            foreach (var item in keylessContainer.GetComponentsInChildren<TMP_Text>())
+            {
+                item.text = "";
+            }
             Populate();
         });
 
@@ -94,6 +96,9 @@ public class APTOSExample : MonoBehaviour
 
             TransactionResult txData = await LyncManager.Instance.TransactionsManager.SendTransaction(
                 mintTxn
+                // new Transaction(
+                // "0x55db3f109405348dd4ce271dc92a39a6e1cbc3d78cf71f6bf128b1c8a9dfac33","tst_unity","set_data_bytes",
+                // arguments)
             );
             if (txData.success)
                 SuccessfulTransaction(txData.hash, "MINT");
@@ -127,6 +132,14 @@ public class APTOSExample : MonoBehaviour
             }));
         }
 
+        if (AuthBase.AuthType == AUTH_TYPE.KEYLESS)
+        {
+            var authData = _authBase as KeylessAuth;
+            accountAddress.text = "Account Address:"+authData.PublicAddress;
+            keylessPublicKey.text = "Public Address:"+authData.KeyPairPublicKey;
+            keylessLoginDate.text = authData.LoginDate.ToString();
+        }
+
         login.interactable = false;
         logout.interactable = true;
         mint.interactable = true;
@@ -137,14 +150,17 @@ public class APTOSExample : MonoBehaviour
         if (authType == AUTH_TYPE.FIREBASE)
         {
             aptosContainer.gameObject.SetActive(true);
-            pontemContainer.gameObject.SetActive(false);
-            Debug.Log("FIREBASE auth");
-        }
+            keylessContainer.gameObject.SetActive(false);
+        } 
         if (authType == AUTH_TYPE.PONTEM)
         {
-            pontemContainer.gameObject.SetActive(true);
             aptosContainer.gameObject.SetActive(false);
-            Debug.Log("PONTEM auth");
+            keylessContainer.gameObject.SetActive(false);
+        }
+        if (authType == AUTH_TYPE.KEYLESS)
+        {
+            aptosContainer.gameObject.SetActive(false);
+            keylessContainer.gameObject.SetActive(true);
         }
     }
 
@@ -160,7 +176,7 @@ public class APTOSExample : MonoBehaviour
             {
                 eventID = EventTriggerType.PointerClick
             };
-            entry.callback.AddListener((eventData) => { Application.OpenURL("https://explorer.aptoslabs.com/txn/" + hash + "?network=testnet"); });
+            entry.callback.AddListener((eventData) => { Application.OpenURL("https://explorer.aptoslabs.com/txn/" + hash + "?network=" + LyncManager.Instance.Network.ToString()); });
             trigger.triggers.Add(entry);
         }
         else

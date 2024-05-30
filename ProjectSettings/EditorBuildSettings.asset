@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/LYNC-APTOS-SDK/APTOS/APTOS.unity
+    guid: 2adc385d106566045a0d86cf7e383063
   m_configObjects: {}
