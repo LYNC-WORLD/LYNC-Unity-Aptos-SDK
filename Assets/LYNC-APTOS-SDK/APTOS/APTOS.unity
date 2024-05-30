@@ -1812,8 +1812,6 @@ MonoBehaviour:
   WalletAddressText: {fileID: 1965625341}
   loginDateTxt: {fileID: 1191776574}
   balance: {fileID: 541526068}
-  pontemContainer: {fileID: 1946123145}
-  pontemPublicAddress: {fileID: 1680259529}
   keylessContainer: {fileID: 2031926747}
   accountAddress: {fileID: 207901814}
   keylessPublicKey: {fileID: 867717523}
@@ -1821,7 +1819,7 @@ MonoBehaviour:
   transactionResultsParent: {fileID: 447854476}
   transactionResultHolder: {fileID: 7745483059579634397, guid: ec5af3f3746218347bb2036f04b39301, type: 3}
   mintTxn:
-    contractAddress: 0x4f75f2c1a07032cb379693fe324c4673d6505690e44f43f5901467f7f27ffa34
+    contractAddress: 0x55db3f109405348dd4ce271dc92a39a6e1cbc3d78cf71f6bf128b1c8a9dfac33
     contractName: tst_unity
     functionName: set_data_bytes
     arguments:
@@ -1834,6 +1832,7 @@ MonoBehaviour:
     usePaymaster: 0
     network: 2
     dataId: 
+    apiKey: 
 --- !u!4 &890959727
 Transform:
   m_ObjectHideFlags: 0
@@ -2760,14 +2759,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5805647402976630236, guid: 2a88366018afe964b965e199ff79c9c4, type: 3}
-      propertyPath: deepLinkUrl
-      value: lyncaptos
-      objectReference: {fileID: 0}
-    - target: {fileID: 5805647402976630236, guid: 2a88366018afe964b965e199ff79c9c4, type: 3}
-      propertyPath: <DeepLinkUrl>k__BackingField
-      value: lync
-      objectReference: {fileID: 0}
     - target: {fileID: 8536144024681728995, guid: 2a88366018afe964b965e199ff79c9c4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
