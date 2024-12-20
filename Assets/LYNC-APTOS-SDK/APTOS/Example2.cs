@@ -54,13 +54,13 @@ public class Example2 : MonoBehaviour
                 var newGO = new GameObject();
                 newGO.transform.parent = publicAddress.transform.parent.parent;
                 newGO.AddComponent<TextMeshProUGUI>().text = "SUCCESS - Click to check on explorer";
-                EventTrigger trigger = newGO.AddComponent<EventTrigger>();
-                EventTrigger.Entry entry = new EventTrigger.Entry
+                Button button = newGO.AddComponent<Button>();
+                button.onClick.AddListener(() =>
                 {
-                    eventID = EventTriggerType.PointerClick
-                };
-                entry.callback.AddListener((eventData) => { Application.OpenURL("https://explorer.aptoslabs.com/txn/" + txResult.hash + "?network=" + LyncManager.Instance.Network.ToString()); });
-                trigger.triggers.Add(entry);
+                    Debug.Log("Opening explorer...");
+                    Debug.Log(txResult.hash);
+                    Application.OpenURL("https://explorer.aptoslabs.com/txn/" + txResult.hash + "?network=" + LyncManager.Instance.Network.ToString());
+                });
             }
             else
             {

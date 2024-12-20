@@ -42,15 +42,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8536144024681728999}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -278681970, guid: ee0c26c11b09543a68c724cd5209c943, type: 3}
+  m_Script: {fileID: -278681970, guid: b36546aeb9d50924e9ded2f66466af11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LyncAPIKey: 
-  Network: 1
+  LyncAPIKey: B30D905974544D082BFEA8A727534195
+  Network: 2
   SponsorTransaction: 1
   LoginOptionFirebase: 1
   LoginOptionPontem: 1
   LoginOptionKeyless: 1
+  clientId: 
 --- !u!114 &5805647402976630236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,7 +61,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8536144024681728999}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1591778871, guid: ee0c26c11b09543a68c724cd5209c943, type: 3}
+  m_Script: {fileID: 1591778871, guid: b36546aeb9d50924e9ded2f66466af11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deepLinkUrl: lyncaptos
+  deepLinkUrl: lync
