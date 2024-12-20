@@ -14,12 +14,13 @@ This release includes the following:
 - Paymaster inbuilt to sponsor transactions for your users.
 
 ## Get your API Key
-Please get your API key before downloading the SDK from [here](https://lync.world/form.html)
+Please get your API key before downloading the SDK from [here](https://dashboard.lync.world/)
 
 ## Installation
 Download the LYNC Unity Aptos SDK from [Here​](https://github.com/LYNC-WORLD/LYNC-Unity-Aptos-SDK/releases)
 
-**Example Project:** https://github.com/LYNC-WORLD/LYNC-Unity-Aptos-SDK​
+**Example Project:** [https://github.com/LYNC-WORLD/LYNC-Unity-Aptos-SDK​
+](https://github.com/LYNC-WORLD/LYNC-Unity-Aptos-SDK?tab=readme-ov-file)
 
 Import the SDK .unitypackage file to your project. or simply drag and drop .unitypackage file to your project.
 
