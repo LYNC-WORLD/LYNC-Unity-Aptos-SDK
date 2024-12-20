@@ -2,7 +2,7 @@
 
 LYNC Unity Aptos SDK is a no-code Modular Unity SDK supporting PC (MacOS and Windows) and Mobile (Android and iOS) on Aptos. 
 
-### **Platform Supported:** PC (Windows and MacOs) and Mobile (Android and iOS)
+### **Platform Supported:** PC (Windows and MacOs) and Mobile (Android and iOS) and WebGL
 
 ### **Network Supported:** Aptos Testnet and Mainnet
 
